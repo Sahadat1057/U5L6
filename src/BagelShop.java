@@ -48,8 +48,8 @@ public class BagelShop
         if (card.checkPIN(cardPIN) == true) {
             int purchase = bagelPrice * quantity;
             card.chargeCard(purchase);
-            profit -= purchase;
-            quantity = 0;
+            profit += purchase;
+            inventory -= quantity;
             return true;
         }
         else return false;
@@ -71,7 +71,13 @@ public class BagelShop
      */
     public boolean returnBagels(CreditCard card, int quantity, String cardPIN)
     {
-        // TO BE IMPLEMENTED
+        if (card.checkPIN(cardPIN) == true) {
+            int returnedBagels = bagelPrice * quantity;
+            card.reduceBalance(returnedBagels);
+            profit -= returnedBagels;
+            return true;
+        }
+        else return false;
     }
 
     /** Deposits all current profits in the vendorBank
@@ -79,7 +85,8 @@ public class BagelShop
      */
     public void depositProfits()
     {
-        // TO BE IMPLEMENTED
+        vendorBank.vendorDeposit(profit);
+        profit = 0;
     }
 
     public String toString()
