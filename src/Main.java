@@ -1,9 +1,10 @@
+import java.util.Scanner;
 public class Main
 {
     public static void main(String[] args)
     {
         //New bank in town
-        Bank bank = new Bank();
+       /* Bank bank = new Bank();
         System.out.println(bank + "\n");
 
         //Mr. Das is getting a new credit card!
@@ -104,8 +105,42 @@ public class Main
         else
         {
             System.out.println("They have the same balance\n");
-        }
+
+        */
+
+
+        Scanner s = new Scanner(System.in);
+        System.out.print("What is your name?");
+        String name = s.nextLine();
+        System.out.println("");
+
+        CreditCard userCard = new CreditCard(name, "9254");
+        Bank userBank = new Bank();
+        BagelShop userBagelShop = new BagelShop(name + "'s Bagel Shop", 100, 1, userBank);
+        BankApp userBankApp = new BankApp();
+
+        System.out.println("These are the actions you can take (as a customer): ");
+
+        System.out.println("Choice 1: Make a purchase or return bagels at the bagel shop");
+        System.out.println("Choice 2: Make a payment on the credit card");
+        System.out.println("Choice 3: Open a second credit card");
+        System.out.println("Choice 4: Compare credit card balances");
+        System.out.println("");
+        System.out.println("As a bagel owner you can take these actions: ");
+        System.out.println("Choice 5: Deposit profits into the bank ");
+        System.out.println("Choice 6: Check Inventory");
+        System.out.println("What action would you like to take?");
+        String choice = s.nextLine();
+        userBankApp.userAction(choice);
+        userBagelShop.payForBagels()
+
+
+
+
+
     }
-}
+
+    }
+
 
 
