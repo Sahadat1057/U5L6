@@ -15,11 +15,19 @@ private int userAction;
 
         }
 
-    public int choice1(BagelShop userBagelShop) {
+    public void choice1(BagelShop userBagelShop, CreditCard userCard) {
         if(userAction == 1) {
-            userBagelShop.returnBagels();
+            userBagelShop.returnBagels( userCard, 100, "9254");
         }
     }
+
+    public void choice2(CreditCard userCard){
+        if(userAction == 2) {
+            userCard.reduceBalance();
+        }
+    }
+
+    public void choice3(CreditCard user)
 
 
 

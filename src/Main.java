@@ -132,7 +132,6 @@ public class Main
         System.out.println("What action would you like to take?");
         String choice = s.nextLine();
         userBankApp.userAction(choice);
-        userBagelShop.payForBagels()
 
 
 
